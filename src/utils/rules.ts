@@ -4,6 +4,7 @@ type Rules = {
   [key in 'email' | 'password' | 'confirm_password']?: RegisterOptions
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getRules = (getValues?: UseFormGetValues<any>): Rules => ({
   email: {
     required: {
@@ -50,7 +51,9 @@ export const getRules = (getValues?: UseFormGetValues<any>): Rules => ({
       value: 6,
       message: 'Độ dài từ 6 - 160 ký tự'
     },
-    validate: (value) =>
-      typeof getValues === 'function' ? getValues('password') === value || 'Password khác nhau' : undefined
+    validate:
+      typeof getValues === 'function'
+        ? (value) => value === getValues('password') || 'Password không trùng nhau'
+        : undefined
   }
 })

@@ -23,7 +23,7 @@ export default function Login() {
 
   return (
     <div className='bg-orange'>
-      <div className='max-w-7xl mx-auto px-4'>
+      <div className='container'>
         <div className='grid grid-cols-1 py-12 lg:grid-cols-5 lg:py-32 lg:pr-10'>
           <div className='lg:col-span-2 lg:col-start-4'>
             <form className='rounded bg-white p-10 shadow-sm' onSubmit={onSubmit} noValidate>
@@ -35,7 +35,7 @@ export default function Login() {
                   placeholder='Email'
                   {...register('email', rules.email)}
                 />
-                <div className='mt-1 min-h-[1.25rem] text-sm text-red-600'></div>
+                <div className='mt-1 min-h-[1.25rem] text-sm text-red-600'>{errors.email?.message}</div>
               </div>
               <div className='mt-2'>
                 <input
@@ -44,7 +44,7 @@ export default function Login() {
                   placeholder='Password'
                   {...register('password', rules.password)}
                 />
-                <div className='mt-1 min-h-[1.25rem] text-sm text-red-600'></div>
+                <div className='mt-1 min-h-[1.25rem] text-sm text-red-600'>{errors.password?.message}</div>
               </div>
               <div className='mt-2'>
                 <button
