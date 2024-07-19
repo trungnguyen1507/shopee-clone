@@ -108,7 +108,7 @@ export default function Register() {
                   isLoading={registerAccountMutation.isLoading}
                   disabled={registerAccountMutation.isLoading}
                 >
-                  Đăng nhập
+                  Đăng ký
                 </Button>
               </div>
               <div className='mt-8 flex items-center justify-center'>
